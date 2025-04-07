@@ -110,7 +110,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         if [[ -n "${{ env.REPO_TOKEN }}" ]]; then
           curl -s -H "Authorization: Bearer ${{ env.REPO_TOKEN }}" \
-          https://api.github.com/repos/281677160/common/releases/tag/API > mishi
+          https://api.github.com/repos/tom4733/common/releases/tag/API > mishi
           if [[ `grep -c "Bad credentials" mishi` -ge '1' ]]; then
             echo "您的密匙不正确或已过期，请按教程设置好密匙再来"
             echo "REPO_TOKEN密匙制作教程：https://git.io/jm.md"
@@ -128,7 +128,7 @@ jobs:
     - name: 检测文件和对比上游版本
       run: |
         cd ${GITHUB_WORKSPACE}
-        bash <(curl -fsSL https://raw.githubusercontent.com/281677160/common/main/custom/first.sh)
+        bash <(curl -fsSL https://raw.githubusercontent.com/tom4733/common/main/custom/first.sh)
         source ${GITHUB_WORKSPACE}/build/${{ env.FOLDER_NAME }}/settings.ini
         export INPUTS_REPO_BRANCH="${{ github.event.inputs.REPO_BRANCH }}"
         export INPUTS_CONFIG_FILE="${{ github.event.inputs.CONFIG_FILE }}"
